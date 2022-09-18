@@ -1,4 +1,4 @@
-class Function{
+class Fraction{
     private : 
     int numerator;
     int denominator;
