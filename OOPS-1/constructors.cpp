@@ -42,7 +42,7 @@ class Student{
         }
         age = a;
     }
-}
+};
 
 int main(){
     Student s1;
