@@ -40,10 +40,64 @@ void print(Node *head) {
 	}
 }
 
+Node* insertNode(Node *head, int i, int data){
+    Node *newNode = new Node(data);
+    int count = 0;
+    Node *temp = head;
+    if(i ==0){
+        newNode -> next = head;
+        head = newNode;
+        return head;
+    }
+
+    while(temp != NULL && count < i-1){
+        temp = temp -> next;
+        count++;
+    }
+    if(temp != NULL){
+        Node *a = temp -> next;
+        temp -> next = newNode;
+        newNode -> next = a;
+    }
+    return head;
+
+}
+
+Node *deleteNode(Node *head, int pos)
+{
+    // Write your code here.
+    Node* temp = head;
+    if(head == NULL){
+        return head;
+    }
+    if(pos == 0){
+        head = head -> next;
+        delete temp;
+        return head;
+    }
+    int count = 0;
+    while(temp != NULL && count < pos-1){
+        temp = temp -> next;
+        count++;
+    }
+    if(temp != NULL && temp -> next != NULL){
+        Node *a = temp -> next;
+        Node *b = a -> next;
+        temp -> next = b;
+        delete a;     
+    }
+    return head;
+}
+
 int main() {
+
 
 	Node *head = takeInput_better();
 	print(head);
+    int i, data;
+    cin >> i >> data;
+    head = insertNode(head, i, data);
+    print(head);
 	
 	/*
 	// Statically
@@ -62,8 +116,7 @@ int main() {
 	n4.next = &n5;
 
 	print(head);
-
-ee	print(head);
+	print(head);
 	*/
 	/*
 	// Dynamically
