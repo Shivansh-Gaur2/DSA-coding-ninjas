@@ -56,6 +56,6 @@ void placeNQueens(int n){
 }
 int main()
 {
-    placeNQueens(4);
+    placeNQueens(11);
     return 0;
 }
